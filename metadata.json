@@ -1,0 +1,7 @@
+{
+  "name": "Pesquisa Inteligente Triad3 - Rastreamento - Online",
+  "description": "Pesquisa Inteligente Triad3",
+  "requestFramePermissions": [
+    "geolocation"
+  ]
+}
