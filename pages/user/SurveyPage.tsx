@@ -75,7 +75,7 @@ const SurveyPage: React.FC = () => {
                 researcherId: user.profileId,
                 userName: campaign.collectUserInfo ? userName : `Participante Anônimo`,
                 userPhone: campaign.collectUserInfo ? userPhone : '',
-                userAge: campaign.collectUserInfo && userAge ? parseInt(userAge, 10) : undefined,
+                userAge: campaign.collectUserInfo ? userAge : undefined,
                 answers: formattedAnswers,
             });
 
@@ -174,10 +174,10 @@ const SurveyPage: React.FC = () => {
 
   if (campaign.collectUserInfo && !hasProvidedInfo) {
     const ageRanges = [
-        { label: '-18', value: '17' },
-        { label: '18-24', value: '21' },
-        { label: '25-44', value: '25' },
-        { label: '45+', value: '45' },
+        { label: '-18', value: '-18' },
+        { label: '18-24', value: '18-24' },
+        { label: '25-44', value: '25-44' },
+        { label: '45+', value: '45+' },
     ];
     return (
         <div className="min-h-screen bg-gray-100 dark:bg-dark-background text-light-text dark:text-dark-text">

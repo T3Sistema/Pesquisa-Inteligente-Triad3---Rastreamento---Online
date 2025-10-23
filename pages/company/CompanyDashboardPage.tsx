@@ -101,16 +101,10 @@ const CompanyDashboardPage: React.FC = () => {
         ? (totalSatisfactionScore / satisfactionResponseCount).toFixed(1) 
         : 'N/A';
     
-    const ageRanges: Record<string, number> = { '0-17': 0, '18-24': 0, '25-34': 0, '35-44': 0, '45-54': 0, '55+': 0 };
+    const ageRanges: Record<string, number> = { '-18': 0, '18-24': 0, '25-44': 0, '45+': 0 };
     responses.forEach(response => {
-        if (response.userAge) {
-            const age = response.userAge;
-            if (age <= 17) ageRanges['0-17']++;
-            else if (age <= 24) ageRanges['18-24']++;
-            else if (age <= 34) ageRanges['25-34']++;
-            else if (age <= 44) ageRanges['35-44']++;
-            else if (age <= 54) ageRanges['45-54']++;
-            else ageRanges['55+']++;
+        if (response.userAge && ageRanges.hasOwnProperty(response.userAge)) {
+            ageRanges[response.userAge]++;
         }
     });
     const ageData = Object.entries(ageRanges).map(([name, value]) => ({ name, value })).filter(item => item.value > 0);

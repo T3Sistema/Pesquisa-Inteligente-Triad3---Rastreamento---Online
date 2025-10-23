@@ -114,7 +114,7 @@ export interface SurveyResponse {
     researcherId?: string; // ID of the researcher who collected the response
     userName: string;
     userPhone: string;
-    userAge?: number;
+    userAge?: string;
     timestamp: Date;
     answers: {
         questionId: string;
